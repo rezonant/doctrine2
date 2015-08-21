@@ -167,6 +167,17 @@ abstract class AbstractHydrator
         return $result;
     }
 
+	/**
+	 * Prepare the query (including its hints) if necessary. 
+	 * This is needed to produce custom object hydrators amongst
+	 * other reasons.
+	 * 
+	 * @param \Doctrine\ORM\Internal\Hydration\Query $query
+	 */
+	public function prepareQuery(\Doctrine\ORM\Query $query)
+	{
+	}
+	
     /**
      * Executes one-time preparation tasks, once each time hydration is started
      * through {@link hydrateAll} or {@link iterate()}.

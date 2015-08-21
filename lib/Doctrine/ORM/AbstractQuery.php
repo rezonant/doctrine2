@@ -763,6 +763,9 @@ abstract class AbstractQuery
             $this->setHydrationMode($hydrationMode);
         }
 
+		$hydrator = $this->_em->newHydrator($this->_hydrationMode);
+		$hydrator->prepareQuery($this);
+		
         if ( ! empty($parameters)) {
             $this->setParameters($parameters);
         }
@@ -799,7 +802,7 @@ abstract class AbstractQuery
             return $stmt;
         }
 
-        $data = $this->_em->newHydrator($this->_hydrationMode)->hydrateAll(
+        $data = $hydrator->hydrateAll(
             $stmt, $this->_resultSetMapping, $this->_hints
         );
 
