@@ -172,9 +172,9 @@ abstract class AbstractHydrator
 	 * This is needed to produce custom object hydrators amongst
 	 * other reasons.
 	 * 
-	 * @param \Doctrine\ORM\Internal\Hydration\Query $query
+	 * @param \Doctrine\ORM\AbstractQuery $query
 	 */
-	public function prepareQuery(\Doctrine\ORM\Query $query)
+	public function prepareQuery(\Doctrine\ORM\AbstractQuery $query)
 	{
 	}
 	
